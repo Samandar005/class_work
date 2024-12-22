@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Student List {% endblock %}
+    <!-- Main Content -->
+{% block content %}
+    <main class="container my-5">
+        <h2 class="mb-4">Student List</h2>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Photo</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Date of Birth</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for student in students %}
+                    <tr>
+                        <td>
+                            <img src="{{ student.image.url }}" class="rounded-circle" alt="Student Photo" height="50">
+                        </td>
+                        <td>{{ student.first_name }}</td>
+                        <td>{{ student.last_name }}</td>
+                        <td>{{ student.birth_date }}</td>
+
+                        <td>
+                            <a href="{{ student.get_detail_url }}" class="btn btn-info btn-sm">View</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+{% endblock %}

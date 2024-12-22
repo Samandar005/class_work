@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Student Management - Home {% endblock %}
+
+    <!-- Main Content -->
+{% block content %}
+    <main class="container my-5">
+        <div class="jumbotron text-center">
+            <h1 class="display-4">Welcome to Student Management System</h1>
+            <p class="lead">Manage your students' information efficiently and effectively.</p>
+            <hr class="my-4">
+            <p>Get started by viewing the student list or adding a new student.</p>
+            <div class="d-flex gap-2 justify-content-center">
+                <a class="btn btn-primary btn-lg" href="{% url 'students:list' %}" role="button">View Students</a>
+                <a class="btn btn-success btn-lg" href="{% url 'students:create' %}" role="button">Add New Student</a>
+            </div>
+        </div>
+    </main>
+{% endblock %}

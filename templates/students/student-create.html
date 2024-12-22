@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %} Create Student {% endblock %}
+
+    <!-- Main Content -->
+{% block content %}
+    <main class="container my-5">
+        <div class="card">
+            <div class="card-header">
+                <h2>Add New Student</h2>
+            </div>
+            <div class="card-body">
+                <form  method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="first_name" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="first_name" name="first_name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="last_name" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="last_name" name="last_name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="birth_date" class="form-label">Date of Birth</label>
+                        <input type="date" class="form-control" id="birth_date" name="birth_date" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Photo</label>
+                        <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <a href="{% url 'students:list' %}" class="btn btn-secondary">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </main>
+{% endblock %}
